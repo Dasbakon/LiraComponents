@@ -2,7 +2,6 @@
 	import { slide } from 'svelte/transition';
 	let opened = false;
 	export let title: string = 'Accordion Title';
-	export let content: any = 'Accordion Content';
 	export let openIcon: string = 'fa-plus';
 	export let closeIcon: string = 'fa-minus';
 	export let disabled: boolean = false;
@@ -26,7 +25,9 @@
 	{#if opened}
 		<div class={`overflow-hidden`} transition:slide>
 			<div class="p-4 text-sm leading-normal text-blue-gray-500/80">
-				{content}
+				<slot>
+					<p>Empty accordion</p>
+				</slot>
 			</div>
 		</div>
 	{/if}

@@ -9,6 +9,9 @@
 	import AvatarStack from '../AvatarStack.svelte';
 	import Breadcrumb from '../Breadcrumb.svelte';
 	import Button from '../Button.svelte';
+	import Card from '../Card.svelte';
+	import Chip from '../Chip.svelte';
+	import Dialog from '../Dialog.svelte';
 
 	let revenue: number = 100;
 	let expense: number = 50;
@@ -89,8 +92,10 @@
 </div>
 <div class="w-1/2 mx-auto">
 	<HoverableTable records={recordsValue} />
-	<Accordion title={'1'} />
-	<Accordion title={'2'} />
+	<Accordion title={'1'}><p>Creio em Deus Pai, Todo-poderoso, criador do Céu e da Terra e em Jesus Cristo, Seu único filho, nosso Senhor</p></Accordion>
+	<Accordion title={'2'}><p>Que foi concebido pelo poder do Espírito Santo. Nasceu da Virgem Maria, padeceu sob Pôncio Pilatos.</p></Accordion>
+	<Accordion title={'3'}><p>Foi crucificado, morto e sepultado. Desceu à mansão dos mortos, ressuscitou ao terceiro dia, subiu aos Céus, está sentado à direita de Deus Pai, Todo-poderoso, de onde há de vir a julgar os vivos e os mortos.</p></Accordion>
+	<Accordion title={'4'}><p>Creio no Espírito Santo, na Santa Igreja Católica, na comunhão dos Santos, na remissão dos pecados, na ressurreição da carne, na vida eterna. Amém.</p></Accordion>	
 	<Accordion title={'Disabled'} disabled />
 	<Button
 		variant="primary"
@@ -138,13 +143,37 @@
 	<Button variant='light'>Light</Button>
 	<Button variant='dark'>Dark</Button>
 	<Button variant='link'>Link</Button>
-	<Button variant='outlined' color='' >Outlined</Button><br>
+	<Button variant='outlined' color='slate-500' >Outlined</Button><br>
 	Button Sizes: <br>
 	<Button variant='primary' size='sm'>Small</Button>
 	<Button variant='primary' size='md'>Medium</Button>
 	<Button variant='primary' size='lg'>Large</Button><br><br>
 	<Button block variant='primary'>Button Block</Button><br><br>
-	<Button><i slot="icon" class="fa fa-bookmark"/> Add to Bookmark</Button>
+	<Button><i slot="icon-left" class="fa-regular fa-bookmark"/> Add to Bookmark</Button>
+	<Button><i slot="icon-left" class="fa fa-cloud-arrow-up"/> Upload Files</Button>
+	<Button variant="outlined" color="red-500"><i slot="icon-right" class="fa fa-arrows-rotate"/>Refresh</Button>
+	<Button variant="link" color="red-500"><i slot="icon-right" class="fa fa-arrow-right"/> Read More</Button><br><br>
+
+	Card <Card/><br>
+	Chips <Chip/><br>
+	Chips colors <br>
+	<Chip color="blue-500">blue</Chip>
+	<Chip color="red-500">red</Chip>
+	<Chip color="green-500">green</Chip>
+	<Chip color="amber-500">amber</Chip>
+	<Chip color="pink-500">pink</Chip>
+	<Chip color="indigo-500">indigo</Chip>
+	<Chip color="purple-500">purple</Chip>
+	<Chip color="teal-500">teal</Chip>
+	<Chip color="cyan-500"><i slot="icon" class="fa fa-check"></i>cyan</Chip><br><br>
+	<Chip><i slot="icon" class="fa fa-download"></i> downloads</Chip>
+	<Chip dismissible>Dismissible</Chip>
+	<Chip color="teal-800"><Avatar twclass="w-6 h-4" variant="rounded"></Avatar>Fulano da Silva</Chip>
+	<br><br>
+	<h1>Dialogs</h1> <br>
+	<Button onClick={() => {}}>Open Dialog</Button>
+	<Dialog/>
+
 </div>
 
 <style>
