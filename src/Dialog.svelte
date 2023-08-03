@@ -1,19 +1,32 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import Button from './Button.svelte';
+	import { element } from 'svelte/internal';
 
 	export let title: string = 'Dialog Title';
 
   let opened: boolean = false;
   
+  export function open() {
+    opened = true;
+  }
+  
+  export function close() {
+    opened = false;
+  }
+
+  export function onAccept(){}
+  
 </script>
 
 {#if opened}
 <div
-	class="w-screen h-screen backdrop-blur-sm backdrop-brightness-50 hover:blur-0 fixed top-0 left-0"
+	class="w-screen h-screen backdrop-blur-sm backdrop-brightness-50 hover:blur-0 fixed top-0 left-0" key
+  transition:fade={{ duration: 150}}
 >
 	<div
 		class="mt-[30vh] m-auto w-2/5 min-w-[40%] max-w-[40%] rounded-lg bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl"
-	>
+    >
 		<div
 			class="flex shrink-0 items-center p-4 font-sans text-2xl font-semibold leading-snug text-blue-gray-900 antialiased"
 		>
@@ -31,7 +44,7 @@
 			</slot>
 		</div>
 		<div class="flex shrink-0 flex-wrap items-center justify-end p-4 text-blue-gray-500 space-x-2">
-			<Button variant="error" size="md">Cancel</Button>
+			<Button variant="error" size="md" onClick={close}>Cancel</Button>
 			<Button variant="success" size="md">Confirm</Button>
 		</div>
 	</div>

@@ -12,6 +12,7 @@
 	import Card from '../Card.svelte';
 	import Chip from '../Chip.svelte';
 	import Dialog from '../Dialog.svelte';
+	import { bind } from 'svelte/internal';
 
 	let revenue: number = 100;
 	let expense: number = 50;
@@ -21,6 +22,7 @@
 	let recordsValue: Array<Record>;
 	let alertComponent: Alert;
 	let alertVariant: string;
+	let dialogComponent: Dialog;
 
 	// let records is an array of Record<string, number>
 	records.subscribe((value) => (recordsValue = value));
@@ -58,6 +60,10 @@
 		const record = new Record(new Date().toLocaleDateString(), -value, 'E');
 		records.update((records) => [...records, record]);
 		sessionStorage.setItem('records', JSON.stringify(recordsValue));
+	}
+
+	function openDialog() {
+		dialogComponent.open();
 	}
 </script>
 
@@ -171,9 +177,10 @@
 	<Chip color="teal-800"><Avatar twclass="w-6 h-4" variant="rounded"></Avatar>Fulano da Silva</Chip>
 	<br><br>
 	<h1>Dialogs</h1> <br>
-	<Button onClick={() => {}}>Open Dialog</Button>
-	<Dialog/>
-
+	<Button onClick={() => openDialog()}>Open Dialog</Button>
+	<Dialog bind:this={dialogComponent} title="A Simple Dialog">
+		<p >Dialog Body</p>
+	</Dialog>
 </div>
 
 <style>
