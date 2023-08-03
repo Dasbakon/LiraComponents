@@ -8,6 +8,7 @@
 	export let color: string = 'white';
 	export let size: string = 'sm';
 	export let block: boolean = false;
+	export let iconButton: boolean = false;
 
 	interface variantType {
 		[key: string]: string;
@@ -36,10 +37,11 @@
 	};
 
 	let blockClass = block ? 'block w-full' : '';
+
 </script>
 
 <button
-	class={`middle none center py-1 px-4 text-sm text-${color} font-medium shadow-md shadow-blue-500/20 transition-all hover:shadow-md hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ${variants[variant]} ${sizes[size]} ${blockClass} ${twclass}`}
+	class={`align-bottom middle none center py-1 px-2 text-sm text-${color} font-medium shadow-md shadow-blue-500/20 transition-all hover:shadow-md hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ${variants[variant]} ${sizes[size]} ${blockClass} ${twclass}`}
 	{disabled}
 	{type}
 	on:click={onClick}
@@ -49,7 +51,11 @@
 			<slot name="icon-left" />
 		</span>
 	{/if}
-	<slot>Button</slot>
+	{#if iconButton}
+		<slot><i class="fa fa-house" /></slot>
+	{:else}
+		<slot>Button</slot>
+	{/if}
 	{#if $$slots['icon-right']}
 		<span class="ml-2">
 			<slot name="icon-right" />

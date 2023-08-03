@@ -150,19 +150,46 @@
 	<Button variant='dark'>Dark</Button>
 	<Button variant='link'>Link</Button>
 	<Button variant='outlined' color='slate-500' >Outlined</Button><br>
+	
 	Button Sizes: <br>
 	<Button variant='primary' size='sm'>Small</Button>
 	<Button variant='primary' size='md'>Medium</Button>
 	<Button variant='primary' size='lg'>Large</Button><br><br>
 	<Button block variant='primary'>Button Block</Button><br><br>
+	
+	Buttons with icons:<br>
 	<Button><i slot="icon-left" class="fa-regular fa-bookmark"/> Add to Bookmark</Button>
 	<Button><i slot="icon-left" class="fa fa-cloud-arrow-up"/> Upload Files</Button>
 	<Button variant="outlined" color="red-500"><i slot="icon-right" class="fa fa-arrows-rotate"/>Refresh</Button>
 	<Button variant="link" color="red-500"><i slot="icon-right" class="fa fa-arrow-right"/> Read More</Button><br><br>
+	
+	Icon Buttons:<br>
+	<Button iconButton></Button><br><br>
 
-	Card <Card/><br>
-	Chips <Chip/><br>
-	Chips colors <br>
+	Icon Buttons variants:<br>
+	<Button iconButton variant="primary"></Button>
+	<Button iconButton variant="secondary"></Button>
+	<Button iconButton variant="success"></Button>
+	<Button iconButton variant="warning"></Button>
+	<Button iconButton variant="error"></Button>
+	<Button iconButton variant="light"></Button>
+	<Button iconButton variant="dark"></Button>
+	<Button iconButton variant="outlined" color="slate-500"></Button><br><br>
+
+	Icon Buttons sizes:<br>
+	<Button iconButton size="sm"></Button>
+	<Button iconButton size="md"></Button>
+	<Button iconButton size="lg"></Button><br><br>
+
+	Icon Buttons colors:<br>
+	<Button iconButton color="blue-500"></Button>
+	<Button iconButton color="red-500"></Button>
+	<Button iconButton color="green-500"></Button>
+	<Button iconButton color="amber-500"></Button><br><br>
+
+	Card: <Card/><br>
+	Chips: <Chip/><br><br>
+	Chips colors: <br>
 	<Chip color="blue-500">blue</Chip>
 	<Chip color="red-500">red</Chip>
 	<Chip color="green-500">green</Chip>
@@ -176,7 +203,7 @@
 	<Chip dismissible>Dismissible</Chip>
 	<Chip color="teal-800"><Avatar twclass="w-6 h-4" variant="rounded"></Avatar>Fulano da Silva</Chip>
 	<br><br>
-	<h1>Dialogs</h1> <br>
+	Dialogs: <br>
 	<Button onClick={() => openDialog()}>Open Dialog</Button>
 	<Dialog bind:this={dialogComponent} title="A Simple Dialog">
 		<p >Dialog Body</p>
